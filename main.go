@@ -1,13 +1,17 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
+	//"net/http"
+
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
-
-	fmt.Print("URL shortner")
+	router := gin.Default()
+	router.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+	router.Run()
 }
